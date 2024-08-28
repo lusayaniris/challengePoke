@@ -1,6 +1,9 @@
 # Use an official Python runtime as a parent image
 FROM python:3.12-slim
 
+# Installing curl and removing cache
+RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Set the working directory in the container
 WORKDIR /app
 

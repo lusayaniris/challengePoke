@@ -21,6 +21,9 @@ logger = logging.getLogger(__name__)
 def login_user():
     return login()
 
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "healthy"}), 200
 
 @app.route('/pokemon/count', methods=['GET'])
 @requires_auth
